@@ -21,7 +21,7 @@ To get a local copy up and running, follow these steps:
 if not then,You can download it [here](https://www.python.org/downloads/).
 
 1. clone the repo
-   git clone https://github.com/V1629/carbon-footprint.git
+   git clone [https://github.com/Aditya-Rauniyar/Foot_print.git](https://github.com/Aditya-Rauniyar/Foot_Print)
    cd carbon-footprint
 2. Install Dependencies: Ensure you have Python and Node.js installed, then install the required packages:
    # For Python dependencies
