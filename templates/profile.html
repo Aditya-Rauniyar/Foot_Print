@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page with GitHub Contributions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* General styling to match homepage */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a3947;
+            color: #f0f4f8;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-top: 20px;
+            border: 2px solid #008cba;
+        }
+
+        .profile-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #a0e6ff;
+            margin: 5px 0;
+        }
+
+        .profile-info p {
+            font-size: 1em;
+            color: #d9edf2;
+            margin: 5px 0;
+        }
+
+        .quote {
+            margin-top: 20px;
+            font-style: italic;
+            color: #a0e6ff;
+        }
+
+        .github-calendar {
+            width: 90%;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #083844;
+            border-radius: 8px;
+            color: #f0f4f8;
+            overflow-x: auto; /* Enable horizontal scroll if content overflows */
+        }
+
+        footer {
+            background-color: #085162;
+            padding: 20px;
+            color: #f0f4f8;
+            font-size: 0.9em;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Ensure month and day labels are fully displayed */
+        .calendar .month-label,
+        .calendar .day-label {
+            font-size: 0.9em;
+            padding: 0 5px;
+        }
+
+        /* Adjust spacing in the legend section for better readability */
+        .calendar .contrib-legend {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #d9edf2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Profile Information -->
+    <div class="container">
+        <div class="profile">
+            <img class="profile-picture" src="pfp.png" width = 150px height = 150px alt="Profile Picture">
+            <div class="profile-info">
+                <h2>Username: Aditya Rauniyar</h2>
+                <p>Email: adityarauniyar912@gmail.com</p>
+            </div>
+            <p class="quote">"The Earth is what we all have in common." – Wendell Berry</p>
+        </div>
+
+        <!-- GitHub Calendar -->
+        <div class="github-calendar" id="github-calendar">
+            <!-- Loading message -->
+            Loading GitHub contributions...
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Footprint Project: Helping you track and reduce your carbon footprint.</p>
+    </footer>
+
+    <!-- GitHub Contributions Script -->
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script>
+        // Initialize the GitHub Calendar with responsive design
+        GitHubCalendar("#github-calendar", "your-username", { responsive: true });
+
+        // Apply full names for months and days in the calendar
+        document.addEventListener("DOMContentLoaded", function() {
+            // Replace abbreviated month and day labels with full names
+            const months = {
+                "Jan": "January", "Feb": "February", "Mar": "March", "Apr": "April",
+                "May": "May", "Jun": "June", "Jul": "July", "Aug": "August",
+                "Sep": "September", "Oct": "October", "Nov": "November", "Dec": "December"
+            };
+            const days = {
+                "Sun": "Sunday", "Mon": "Monday", "Tue": "Tuesday", "Wed": "Wednesday",
+                "Thu": "Thursday", "Fri": "Friday", "Sat": "Saturday"
+            };
+
+            setTimeout(() => {
+                // Modify month labels
+                document.querySelectorAll(".month-label").forEach(label => {
+                    if (months[label.textContent]) {
+                        label.textContent = months[label.textContent];
+                    }
+                });
+
+                // Modify day labels
+                document.querySelectorAll(".day-label").forEach(label => {
+                    if (days[label.textContent]) {
+                        label.textContent = days[label.textContent];
+                    }
+                });
+            },1000); // Delay to allow GitHub calendar to load
+        });
+    </script>
+</body>
+
+</html>

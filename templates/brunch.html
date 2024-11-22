@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brunch - Meal Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 2.5rem;
+        }
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+        .meal-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            width: 100%;
+        }
+        .meal-card:hover {
+            transform: scale(1.05);
+        }
+        .meal-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .meal-card h2 {
+            font-size: 1.2rem;
+            margin: 10px;
+            color: #555;
+        }
+        .meal-card .description {
+            font-size: 1rem;
+            color: #777;
+            padding: 10px;
+        }
+        .meal-card .details {
+            font-size: 0.9rem;
+            color: #333;
+            padding: 10px;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+        }
+        .meal-card a {
+            text-decoration: none;
+            color: #007BFF;
+            display: block;
+            padding: 10px;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+        .meal-card a:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Brunch Meal Plan</h1>
+            <p>Delicious meals for a midday boost!</p>
+        </div>
+        <div class="meal-grid">
+            <div class="meal-card">
+                <a href="#">Vegetable Frittata</a>
+                <img src="{{ url_for('static', filename='images/vegetable-frittata.jpg') }}" alt="Vegetable Frittata">
+                <h2>A savory frittata with vegetables and eggs.</h2>
+                <div class="description">Packed with protein and fresh veggies for a nutritious brunch.</div>
+                <div class="details">
+                    <span>CO2 Saved: 0.3 kg</span>
+                    <span>Calories: 350 kcal</span>
+                </div>
+            </div>
+            <div class="meal-card">
+                <a href="#">Smoothie Bowl</a>
+                <img src="{{ url_for('static', filename='images/smoothie-bowl.jpg') }}" alt="Smoothie Bowl">
+                <h2>A refreshing smoothie bowl topped with granola and fresh fruit.</h2>
+                <div class="description">A healthy and colorful brunch option packed with vitamins.</div>
+                <div class="details">
+                    <span>CO2 Saved: 0.2 kg</span>
+                    <span>Calories: 280 kcal</span>
+                </div>
+            </div>
+            <div class="meal-card">
+                <a href="#">Egg Avocado Toast</a>
+                <img src="{{ url_for('static', filename='images/egg-avocado-toast.jpg') }}" alt="Egg Avocado Toast">
+                <h2>Toasted bread with smashed avocado and a sunny-side-up egg.</h2>
+                <div class="description">A perfect combination of healthy fats, protein, and fiber.</div>
+                <div class="details">
+                    <span>CO2 Saved: 0.4 kg</span>
+                    <span>Calories: 300 kcal</span>
+                </div>
+            </div>
+            <div class="meal-card">
+                <a href="#">Chia Pudding</a>
+                <img src="{{ url_for('static', filename='images/chia-pudding.jpg') }}" alt="Chia Pudding">
+                <h2>Chia seeds soaked in almond milk topped with fruit.</h2>
+                <div class="description">A creamy and satisfying dish that's rich in fiber and omega-3s.</div>
+                <div class="details">
+                    <span>CO2 Saved: 0.3 kg</span>
+                    <span>Calories: 250 kcal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
